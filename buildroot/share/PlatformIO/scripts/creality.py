@@ -2,9 +2,13 @@ import os
 Import("env")
 
 # Relocate firmware from 0x08000000 to 0x08007000
+to_remove = None
 for define in env['CPPDEFINES']:
     if define[0] == "VECT_TAB_ADDR":
-        env['CPPDEFINES'].remove(define)
+        to_remove = define
+
+if to_remove is not None:
+    env['CPPDEFINES'].remove(to_remove)
 
 env['CPPDEFINES'].append(("VECT_TAB_ADDR", "0x08007000"))
 
