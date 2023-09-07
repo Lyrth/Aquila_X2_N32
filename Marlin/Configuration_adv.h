@@ -408,7 +408,7 @@
    *
    * Define one or both of these to override the default 0-255 range.
    */
-  #define FAN_MIN_PWM 50
+  #define FAN_MIN_PWM 0
   //#define FAN_MAX_PWM 128
 
   /**
@@ -434,7 +434,7 @@
    *   USE_OCR2A_AS_TOP sacrifices duty cycle control resolution to achieve this broader range of frequencies.
    */
   #if ENABLED(FAST_PWM_FAN)
-    //#define FAST_PWM_FAN_FREQUENCY 31400
+    #define FAST_PWM_FAN_FREQUENCY 4412
     //#define USE_OCR2A_AS_TOP
   #endif
 
