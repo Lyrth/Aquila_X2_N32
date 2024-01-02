@@ -636,11 +636,11 @@ inline void manage_inactivity(const bool ignore_stepper_queue=false) {
   TERN_(MONITOR_L6470_DRIVER_STATUS, L64xxManager.monitor_driver());
 
   // Limit check_axes_activity frequency to 10Hz
-  static millis_t next_check_axes_ms = 0;
-  if (ELAPSED(ms, next_check_axes_ms)) {
+  // static millis_t next_check_axes_ms = 0;
+  // if (ELAPSED(ms, next_check_axes_ms)) {
     planner.check_axes_activity();
-    next_check_axes_ms = ms + 100UL;
-  }
+    // next_check_axes_ms = ms + 100UL;
+  // }
 
   #if PIN_EXISTS(FET_SAFETY)
     static millis_t FET_next;
